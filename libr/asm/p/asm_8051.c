@@ -9,6 +9,7 @@
 #include <r_asm.h>
 
 #include <8051_ass.h>
+#if 0
 #include "../arch/8051/8051_disas.c"
 
 static int disassemble(RAsm *a, RAsmOp *op, const ut8 *buf, int len) {
@@ -24,6 +25,7 @@ static int disassemble(RAsm *a, RAsmOp *op, const ut8 *buf, int len) {
 	op->size = dlen;
 	return dlen;
 }
+#endif
 
 RAsmPlugin r_asm_plugin_8051 = {
 	.name = "8051",
@@ -31,7 +33,7 @@ RAsmPlugin r_asm_plugin_8051 = {
 	.bits = 8,
 	.endian = R_SYS_ENDIAN_NONE,
 	.desc = "8051 Intel CPU",
-	.disassemble = &disassemble,
+	// .disassemble = &disassemble,
 	.assemble = &assemble_8051,
 	.license = "PD",
 	.cpus =
